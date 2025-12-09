@@ -1,0 +1,7 @@
+name = "Shouyu"
+license = "MIT"
+description = " a minimal, fast Hugo theme for focused blogging. stop configuring. start writing."
+version = "1.0.0"
+min_version = "0.114.0"
+author = "ramenaru"
+tags = ["blog", "tech", "minimal", "dark", "terminal"]
