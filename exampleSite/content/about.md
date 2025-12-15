@@ -3,9 +3,12 @@ title: "About"
 date: 2024-01-15
 ---
 
-# About This Blog
+## About This Blog
 
-This is a simple blog built with Hugo and Shouyu Minimal theme.
+This is a simple blog built with Hugo and Shouyu theme.
+
+## My Picture
+![Scenario 1: Across columns](/images/person.jpg)
 
 ## Features
 
@@ -17,3 +20,4 @@ This is a simple blog built with Hugo and Shouyu Minimal theme.
 ## Contact
 
 Email: hello@example.com
+

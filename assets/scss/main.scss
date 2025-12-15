@@ -5,7 +5,6 @@ $text-primary: #ebe8e8;
 $text-secondary: #a0a0a0;
 $border-color: #353434;
 $code-bg: #1a1a1a;
-$terminal-green: #4AF626;
 $terminal-blue: #5dadec;
 
 // Screen sizes
@@ -23,6 +22,11 @@ $mobile-width: 480px;
   @media (max-width: #{$mobile-width}) {
     @content;
   }
+}
+
+@mixin terminal-text {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  letter-spacing: -0.02em;
 }
 
 // Base styles
@@ -96,29 +100,6 @@ body {
   }
 }
 
-.back-home {
-  font-size: 0.9rem;
-  color: $text-secondary;
-  text-decoration: none;
-  
-  &:hover {
-    color: $accent-primary;
-    text-decoration: underline;
-  }
-}
-
-// Main Content Container
-.main-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 2rem 4rem;
-  
-  @include tablet {
-    padding: 0 1rem 3rem;
-  }
-}
-
-// Main Site Link in Header
 .main-site-link {
   font-size: 0.9rem;
   color: $accent-primary;
@@ -130,66 +111,17 @@ body {
   &:hover {
     text-decoration: underline;
     gap: 0.5rem;
-    
-    &::after {
-      font-size: 0.8rem;
-    }
   }
 }
 
-// Post Navigation (at end of post)
-.post-navigation {
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid $border-color;
-  text-align: center;
+// Main Content Container
+.main-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
   
-  .back-home {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: $text-secondary;
-    text-decoration: none;
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-    border: 1px solid $border-color;
-    
-    &:hover {
-      color: $accent-primary;
-      border-color: $accent-primary;
-      background: rgba($accent-primary, 0.05);
-    }
-  }
-}
-
-// View All Posts link on home
-.view-all-posts {
-  text-align: center;
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid $border-color;
-}
-
-.view-all-link {
-  color: $accent-primary;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  
-  &:hover {
-    text-decoration: underline;
-    gap: 0.75rem;
-  }
-}
-
-.home-content {
-  margin-top: 4rem;
-  padding-top: 3rem;
-  border-top: 1px solid $border-color;
-  
-  .post-content {
-    font-size: 1.125rem;
+  @include tablet {
+    padding: 0 1rem 3rem;
   }
 }
 
@@ -300,6 +232,26 @@ body {
   }
 }
 
+.view-all-posts {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid $border-color;
+}
+
+.view-all-link {
+  color: $accent-primary;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  &:hover {
+    text-decoration: underline;
+    gap: 0.75rem;
+  }
+}
+
 // Single Post
 .single-post {
   .post-header {
@@ -332,6 +284,54 @@ body {
     line-height: 1.6;
   }
 }
+
+// Post Navigation (Next/Previous)
+.post-navigation {
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin: 0 auto;
+  padding: 2rem 0;
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+}
+
+  @include tablet {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .prev-post,
+  .next-post {
+    a {
+      color: $text-primary;
+      text-decoration: none;
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      
+      &:hover {
+        color: $accent-primary;
+      }
+    }
+  }
+  
+  .next-post {
+    margin-left: auto;
+    
+    @include tablet {
+      text-align: right;
+    }
+  }
+  
+  .nav-label {
+    font-size: 0.875rem;
+    color: $text-secondary;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
 
 // Table of Contents
 .post-toc {
@@ -376,7 +376,7 @@ body {
   }
 }
 
-// Post Content Styling (Terminal-style for code)
+// Post Content Styling
 .post-content {
   font-size: 1.125rem;
   line-height: 1.8;
@@ -423,17 +423,13 @@ body {
     font-style: italic;
   }
   
-  // Terminal-style Code Blocks
-  code {
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
-    font-size: 0.9em;
-    padding: 0.2em 0.4em;
-  }
-  
   // Inline code
   :not(pre) > code {
+    @include terminal-text;
     background: $code-bg;
-    color: $terminal-green;
+    color: $terminal-blue;
+    padding: 0.2em 0.4em;
+    font-size: 0.9em;
     border: 1px solid $border-color;
   }
   
@@ -446,40 +442,16 @@ body {
     margin: 2rem 0;
     position: relative;
     
-    // Add terminal window style
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 36px;
-      background: darken($code-bg, 3%);
-      border-bottom: 1px solid $border-color;
-    }
-    
-    // Terminal dots
-    &::after {
-      content: '•••';
-      position: absolute;
-      top: 10px;
-      left: 15px;
-      color: $text-secondary;
-      font-size: 12px;
-      letter-spacing: 2px;
-    }
-    
     code {
       background: none;
       border: none;
       padding: 0;
       color: $text-primary;
       font-size: 0.95em;
-      line-height: 1.5;
+      line-height: 1.2;
       display: block;
     }
     
-    // Terminal prompt style for shell sessions
     &.language-bash,
     &.language-sh,
     &.language-shell,
@@ -487,19 +459,17 @@ body {
       code {
         .line::before {
           content: '$ ';
-          color: $terminal-green;
+          color: $terminal-blue;
           margin-right: 0.5em;
         }
       }
     }
   }
   
-  // Code highlighting colors (terminal theme)
   .highlight {
     .chroma {
       background: $code-bg;
       
-      // Line numbers
       .lntable {
         .lntd:first-child {
           .lnt {
@@ -517,7 +487,7 @@ body {
       
       // Strings
       .s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sx {
-        color: $terminal-green;
+        color: $accent-primary;
       }
       
       // Comments
@@ -528,17 +498,17 @@ body {
       
       // Numbers
       .m, .mb, .mf, .mh, .mi, .il, .mo {
-        color: #d33682;
+        color: $terminal-blue;
       }
       
       // Functions
       .nf, .nx {
-        color: #b58900;
+        color: $accent-primary;
       }
       
       // Types
       .nb, .nc, .no, .nd, .ne, .nl, .nn, .nt, .nv, .vc, .vg, .vi {
-        color: #cb4b16;
+        color: $terminal-blue;
       }
     }
   }
@@ -653,6 +623,17 @@ body {
   }
 }
 
+// Home content area
+.home-content {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid $border-color;
+  
+  .post-content {
+    font-size: 1.125rem;
+  }
+}
+
 // Responsive Design
 @include tablet {
   .main-container {
@@ -710,5 +691,26 @@ body {
   .footer-content {
     flex-direction: column;
     gap: 1rem;
+  }
+}
+
+// Print Styles
+@media print {
+  .terminal-header,
+  .terminal-footer,
+  .terminal-toc,
+  .post-navigation,
+  .back-to-home {
+    display: none;
+  }
+  
+  body {
+    color: #000;
+    background: #fff;
+  }
+  
+  a {
+    color: #000;
+    text-decoration: underline;
   }
 }
