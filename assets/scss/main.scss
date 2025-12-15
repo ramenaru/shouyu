@@ -153,7 +153,6 @@ body {
     font-size: 0.9rem;
     padding: 0.5rem 1rem;
     border: 1px solid $border-color;
-    border-radius: 4px;
     
     &:hover {
       color: $accent-primary;
@@ -429,7 +428,6 @@ body {
     font-family: 'JetBrains Mono', 'Courier New', monospace;
     font-size: 0.9em;
     padding: 0.2em 0.4em;
-    border-radius: 3px;
   }
   
   // Inline code
@@ -443,7 +441,6 @@ body {
   pre {
     background: $code-bg;
     border: 1px solid $border-color;
-    border-radius: 6px;
     padding: 1.5rem;
     overflow-x: auto;
     margin: 2rem 0;
@@ -459,7 +456,6 @@ body {
       height: 36px;
       background: darken($code-bg, 3%);
       border-bottom: 1px solid $border-color;
-      border-radius: 6px 6px 0 0;
     }
     
     // Terminal dots
@@ -550,7 +546,6 @@ body {
   img {
     max-width: 100%;
     height: auto;
-    border-radius: 4px;
     margin: 2rem 0;
   }
   
@@ -580,7 +575,6 @@ body {
     padding: 0.375rem 0.75rem;
     border: 1px solid $border-color;
     text-decoration: none;
-    border-radius: 4px;
     
     &:hover {
       border-color: $accent-primary;

@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
             color: #a0a0a0;
             cursor: pointer;
             padding: 4px 8px;
-            border-radius: 4px;
             font-size: 12px;
             z-index: 10;
             transition: all 0.2s;
