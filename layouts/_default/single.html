@@ -1,0 +1,41 @@
+{{ define "main" }}
+<article class="single-post">
+    <header class="post-header">
+        <div class="post-meta">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">
+                {{ .Date.Format "January 2, 2006" }}
+            </time>
+            
+            {{ if .ReadingTime }}
+            <span>· {{ .ReadingTime }} min read</span>
+            {{ end }}
+        </div>
+        
+        <h1 class="post-title">{{ .Title }}</h1>
+        
+        {{ if .Description }}
+        <p class="post-description">{{ .Description }}</p>
+        {{ end }}
+    </header>
+    
+    {{ partial "toc.html" . }}
+    
+    <div class="post-content">
+        {{ .Content }}
+    </div>
+    
+    <footer class="post-footer">
+        {{ if .Params.tags }}
+        <div class="post-tags">
+            {{ range .Params.tags }}
+            <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="post-tag">#{{ . }}</a>
+            {{ end }}
+        </div>
+        {{ end }}
+        
+        <div class="post-navigation">
+            <a href="{{ .Site.BaseURL }}" class="back-home">← Back to blog home</a>
+        </div>
+    </footer>
+</article>
+{{ end }}

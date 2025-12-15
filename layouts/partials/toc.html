@@ -1,0 +1,6 @@
+{{ if and (ne .TableOfContents "<nav id=\"TableOfContents\"></nav>") (.Params.toc | default true) }}
+<aside class="post-toc">
+    <div class="toc-title">Table of Contents</div>
+    {{ .TableOfContents }}
+</aside>
+{{ end }}

@@ -1,0 +1,13 @@
+<header class="site-header">
+    <div class="header-container">
+        <a href="{{ .Site.BaseURL }}" class="site-title">
+            {{ .Site.Title }}
+        </a>
+        
+        {{ if .Site.Params.mainSiteUrl }}
+        <a href="{{ .Site.Params.mainSiteUrl }}" class="main-site-link" target="_blank" rel="noopener">
+            Main Site →
+        </a>
+        {{ end }}
+    </div>
+</header>

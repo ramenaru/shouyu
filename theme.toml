@@ -1,0 +1,8 @@
+name = "Shouyu"
+license = "MIT"
+licenselink = "https://github.com/ramenaru/shouyu/blob/main/LICENSE"
+description = "A fast, minimal Hugo theme for focused blogging with dark mode."
+homepage = "https://github.com/ramenaru/shouyu"
+tags = ["blog", "minimal", "dark", "fast", "terminal"]
+features = ["dark mode", "responsive", "table of contents"]
+min_version = "0.110.0"

@@ -1,0 +1,57 @@
+{{ define "main" }}
+<div class="posts-list">
+    <h1 class="hero-title">{{ .Title }}</h1>
+    
+    {{ if .Description }}
+    <p class="hero-description" style="margin-bottom: 3rem;">{{ .Description }}</p>
+    {{ end }}
+    
+    <div class="post-grid">
+        {{ range .Paginator.Pages }}
+        <article class="post-card">
+            <time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}">
+                {{ .Date.Format "January 2, 2006" }}
+            </time>
+            
+            <h3 class="post-title">
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </h3>
+            
+            {{ if .Description }}
+            <p class="post-excerpt">{{ .Description }}</p>
+            {{ else }}
+            <p class="post-excerpt">{{ .Summary | truncate 200 }}</p>
+            {{ end }}
+            
+            {{ if .Params.tags }}
+            <div class="post-tags">
+                {{ range first 3 .Params.tags }}
+                <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="post-tag">{{ . }}</a>
+                {{ end }}
+            </div>
+            {{ end }}
+        </article>
+        {{ end }}
+    </div>
+    
+    {{ if gt .Paginator.TotalPages 1 }}
+    <nav class="pagination">
+        {{ if .Paginator.HasPrev }}
+        <a href="{{ .Paginator.Prev.URL }}" class="pagination-link">← Previous</a>
+        {{ else }}
+        <span></span>
+        {{ end }}
+        
+        <span class="pagination-info">
+            Page {{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}
+        </span>
+        
+        {{ if .Paginator.HasNext }}
+        <a href="{{ .Paginator.Next.URL }}" class="pagination-link">Next →</a>
+        {{ else }}
+        <span></span>
+        {{ end }}
+    </nav>
+    {{ end }}
+</div>
+{{ end }}

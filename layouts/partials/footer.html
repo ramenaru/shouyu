@@ -1,0 +1,19 @@
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="copyright">
+                © {{ now.Format "2006" }} {{ .Site.Title }}
+            </div>
+            
+            <nav class="footer-links">
+                {{ range .Site.Menus.footer }}
+                <a href="{{ .URL }}">{{ .Name }}</a>
+                {{ end }}
+                
+                {{ if .Site.Params.rss }}
+                <a href="{{ "index.xml" | absURL }}">RSS</a>
+                {{ end }}
+            </nav>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,37 @@
+baseURL = "https://blog.johndoe.dev/"
+languageCode = "en-us"
+title = "John Doe's Tech Blog"
+theme = "shouyu"
+
+[params]
+  heroTitle = "John Doe"
+  heroDescription = "Backend developer writing about Rust, Go, and Linux"
+  mainSiteUrl = "https://johndoe.dev"
+  rss = true
+  github = "https://github.com/johndoe"
+  twitter = "https://twitter.com/johndoe"
+  linkedin = "https://linkedin.com/in/johndoe"
+
+[menu]
+  [[menu.footer]]
+    name = "About"
+    url = "/about"
+    weight = 1
+  [[menu.footer]]
+    name = "All Posts"
+    url = "/posts"
+    weight = 2
+  [[menu.footer]]
+    name = "Projects"
+    url = "https://johndoe.dev/projects"
+    weight = 3
+  [[menu.footer]]
+    name = "Contact"
+    url = "https://johndoe.dev/contact"
+    weight = 4
+
+[permalinks]
+  posts = "/:year/:month/:slug/"
+
+[build]
+  writeStats = true

@@ -1,0 +1,52 @@
+{{ define "main" }}
+<div class="home-hero">
+    <h1 class="hero-title">{{ .Site.Params.heroTitle | default "Welcome" }}</h1>
+    <p class="hero-description">{{ .Site.Params.heroDescription | default "A minimal blog focused on content" }}</p>
+</div>
+
+{{ if .Site.RegularPages }}
+<section class="posts-list">
+    <h2 class="section-title">Recent Posts</h2>
+    
+    <div class="post-grid">
+        {{ range first 5 (where .Site.RegularPages "Type" "posts") }}
+        <article class="post-card">
+            <time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}">
+                {{ .Date.Format "January 2, 2006" }}
+            </time>
+            
+            <h3 class="post-title">
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </h3>
+            
+            {{ if .Description }}
+            <p class="post-excerpt">{{ .Description }}</p>
+            {{ else }}
+            <p class="post-excerpt">{{ .Summary | truncate 200 }}</p>
+            {{ end }}
+            
+            {{ if .Params.tags }}
+            <div class="post-tags">
+                {{ range first 3 .Params.tags }}
+                <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="post-tag">{{ . }}</a>
+                {{ end }}
+            </div>
+            {{ end }}
+        </article>
+        {{ end }}
+    </div>
+    
+    {{ if gt (len (where .Site.RegularPages "Type" "posts")) 5 }}
+    <div class="view-all-posts">
+        <a href="/posts" class="view-all-link">View all posts →</a>
+    </div>
+    {{ end }}
+</section>
+{{ end }}
+
+{{ if .Content }}
+<div class="home-content">
+    {{ .Content }}
+</div>
+{{ end }}
+{{ end }}
