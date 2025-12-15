@@ -12,7 +12,9 @@
   [![Issues](https://img.shields.io/github/issues/ramenaru/shouyu)](https://github.com/ramenaru/shouyu/issues)
   [![Pull Requests](https://img.shields.io/github/issues-pr/ramenaru/shouyu)](https://github.com/ramenaru/shouyu/pulls)
 
-  <strong>A fast, minimal Hugo theme for focused blogging with dark mode.</strong>  
+  <strong>A fast, minimal Hugo theme for focused blogging with dark mode.</strong>
+  <br />
+  [Website Demo ↗](https://img.shields.io/github/stars/ramenaru/shouyu) 
 </div>
 
 ## Before Installation
