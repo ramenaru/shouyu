@@ -5,16 +5,17 @@
   
   <br />
 
-  [![Repository Stars](https://img.shields.io/github/stars/ramenaru/shouyu)](https://github.com/ramenaru/shoyu/)
-  [![Repository Forks](https://img.shields.io/github/forks/ramenaru/shouyu)](https://github.com/ramenaru/shouyu/)
+  <strong>A fast, minimal Hugo theme for focused blogging with dark mode.</strong>
+  <br />
+  [Website Demo ↗](https://blog.ramenaru.me) 
 
   [![MIT Licenses](https://img.shields.io/github/license/ramenaru/shouyu)](LICENSE)
   [![Issues](https://img.shields.io/github/issues/ramenaru/shouyu)](https://github.com/ramenaru/shouyu/issues)
   [![Pull Requests](https://img.shields.io/github/issues-pr/ramenaru/shouyu)](https://github.com/ramenaru/shouyu/pulls)
 
-  <strong>A fast, minimal Hugo theme for focused blogging with dark mode.</strong>
-  <br />
-  [Website Demo ↗](https://blog.ramenaru.me) 
+  
+  [![Repository Stars](https://img.shields.io/github/stars/ramenaru/shouyu)](https://github.com/ramenaru/shoyu/)
+  [![Repository Forks](https://img.shields.io/github/forks/ramenaru/shouyu)](https://github.com/ramenaru/shouyu/)
 </div>
 
 ## Before Installation
