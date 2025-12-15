@@ -14,7 +14,7 @@
 
   <strong>A fast, minimal Hugo theme for focused blogging with dark mode.</strong>
   <br />
-  [Website Demo ↗](https://img.shields.io/github/stars/ramenaru/shouyu) 
+  [Website Demo ↗](https://blog.ramenaru.me) 
 </div>
 
 ## Before Installation
